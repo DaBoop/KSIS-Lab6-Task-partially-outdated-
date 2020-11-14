@@ -42,7 +42,7 @@ bool OctetCheck(vector<string> str) // returns false if one of the octets or the
 
 bool MaskCheck(string str) // returns false if mask sequence is wrong
 {
-	if (str[0] != 1)
+	if (str[0] != '1')
 		return false;
 	bool zeroMet = false;
 	for (char letter : str)
