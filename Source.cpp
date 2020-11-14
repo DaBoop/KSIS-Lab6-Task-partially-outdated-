@@ -61,9 +61,9 @@ bool MaskCheck(string str) // returns false if mask sequence is wrong
 void main()
 {
 	string ip, mask;
-	cout << "IP:";
+	cout << "IP:\t";
 	cin >> ip;
-	cout << "Subnet mask:";
+	cout << "Mask:\t";
 	cin >> mask;
 
 	vector <string> ipTrim = Trim(ip);
@@ -113,29 +113,29 @@ void main()
 		return;
 	}
 	
-	cout << "IP:   ";
+	cout << "IP:\t";
 	for (int i = 0; i < 32; i++)
 	{
 		cout << binaryip[i];
-		if (i % 8 == 0 && i != 0)
+		if (i % 8 == 7 && i != 31)
 			cout << ".";
 	}
-	cout << endl << "Mask: ";
+	cout << endl << "Mask:\t";
 	for (int i = 0; i < 32; i++)
 	{
 		cout << binarymask[i];
-		if (i % 8 == 0 && i != 0)
+		if (i % 8 == 7 && i != 31)
 			cout << ".";
 	}
 
-	cout << endl << "Host: ";
+	cout << endl << "Subnet:\t";
 	for (int i : {0, 1, 2, 3})
 	{ 
 		cout << (atoi(ipTrim[i].c_str()) & atoi(maskTrim[i].c_str()));
 		if (i != 3)
 			cout << ".";
 	}
-	cout << endl << "Subnet: ";
+	cout << endl << "Host:\t";
 	for (int i : {0, 1, 2, 3})
 	{
 		cout << (atoi(ipTrim[i].c_str()) & ~atoi(maskTrim[i].c_str()));
